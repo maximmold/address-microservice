@@ -15,7 +15,7 @@ public class AddressController {
     @RequestMapping("address/{fileNumber}")
     public Address address(@PathVariable Long fileNumber){
         Address address = addressHashMap.get(fileNumber);
-        if (address != null) {
+        if (address == null) {
             address = EnhancedRandom.random(Address.class);
             addressHashMap.putIfAbsent(fileNumber, address);
         }
