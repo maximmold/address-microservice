@@ -17,6 +17,7 @@ public class AddressController {
         Address address = addressHashMap.get(fileNumber);
         if (address == null) {
             address = EnhancedRandom.random(Address.class);
+            address.setFileNumber(fileNumber);
             addressHashMap.putIfAbsent(fileNumber, address);
         }
         return address;
